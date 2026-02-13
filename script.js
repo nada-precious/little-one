@@ -74,3 +74,12 @@ function toggleMusic() {
     }
 }
 
+
+// Song Selector
+const selector = document.getElementById('songSelector');
+const player = document.getElementById('audioPlayer');
+
+selector.addEventListener('change', () => {
+    player.src = selector.value;
+    player.play();
+});
