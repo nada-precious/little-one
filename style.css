@@ -142,3 +142,24 @@ body {
     color: #e11d48;
     text-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
 }
+
+/* Falling Rose Petals */
+.petals::before {
+    content: "🌹 🌹 🌹 🌹 🌹 🌹 🌹";
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    opacity: 0.2;
+    animation: fallPetals 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fallPetals {
+    0% { transform: translateY(-10vh); }
+    100% { transform: translateY(120vh); }
+}
+
+
