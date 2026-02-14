@@ -105,4 +105,40 @@ body {
     margin-top: 0.5rem;
 }
 
+.valentine-message {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #e11d48;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease forwards;
+}
 
+.hearts::before,
+.hearts::after {
+    content: "💖 💕 💘 💗 💓";
+    position: fixed;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    animation: floatHearts 20s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-120vh);
+    }
+}
+
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #e11d48;
+    text-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
+}
