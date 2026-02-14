@@ -88,14 +88,14 @@ selector.addEventListener('change', () => {
     player.play();
 });
 
-const title = document.getElementById("main-title");
+const main-title = document.getElementById("main-title");
 const secret = document.getElementById("secretMessage");
 
 const message = "You are the best thing that ever happened to me. I choose you. Always. 💙";
 
 let typing = false;
 
-title.addEventListener("click", function () {
+main-title.addEventListener("click", function () {
 
     if (typing) return;
 
@@ -123,4 +123,5 @@ title.addEventListener("click", function () {
 
     typeWriter();
 });
+
 
