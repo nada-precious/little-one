@@ -88,7 +88,7 @@ selector.addEventListener('change', () => {
     player.play();
 });
 
-const title = document.getElementById("loveTitle");
+const title = document.getElementById("main-title");
 const secret = document.getElementById("secretMessage");
 
 const message = "You are the best thing that ever happened to me. I choose you. Always. 💙";
@@ -123,3 +123,4 @@ title.addEventListener("click", function () {
 
     typeWriter();
 });
+
