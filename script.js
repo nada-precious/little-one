@@ -116,6 +116,7 @@ title.addEventListener("click", function () {
     typeWriter();
 });
 
+// DOM Elements
 const puzzle = document.getElementById("puzzle");
 const messageBox = document.getElementById("puzzleMessage");
 const moveDisplay = document.getElementById("moveCount");
@@ -126,7 +127,7 @@ const thumbs = document.querySelectorAll(".thumb");
 
 const size = 3;
 let images = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
-let image = images[Math.floor(Math.random() * 2)];
+let image = images[Math.floor(Math.random() * 2)]; // random start from first 2
 
 let tiles = [];
 let emptyIndex = size * size - 1;
@@ -135,7 +136,7 @@ let timer = 0;
 let interval;
 let gameStarted = false;
 
-// Create Puzzle
+// ------------------- Puzzle Creation -------------------
 function createPuzzle() {
     puzzle.innerHTML = "";
     tiles = [];
@@ -160,7 +161,7 @@ function createPuzzle() {
     }
 }
 
-// Move Tile
+// ------------------- Tile Movement -------------------
 function moveTile(index) {
     const validMoves = [
         emptyIndex - 1,
@@ -170,7 +171,6 @@ function moveTile(index) {
     ];
 
     if (validMoves.includes(index)) {
-
         if (!gameStarted) {
             startTimer();
             gameStarted = true;
@@ -186,7 +186,6 @@ function moveTile(index) {
     }
 }
 
-// Swap Tiles
 function swapTiles(i1, i2) {
     const tempBg = tiles[i1].style.backgroundPosition;
     const tempImg = tiles[i1].style.backgroundImage;
@@ -200,7 +199,7 @@ function swapTiles(i1, i2) {
     tiles[i2].classList.toggle("empty");
 }
 
-// Shuffle
+// ------------------- Shuffle -------------------
 function shuffle() {
     for (let i = 0; i < 150; i++) {
         const neighbors = [
@@ -216,7 +215,7 @@ function shuffle() {
     }
 }
 
-// Timer
+// ------------------- Timer -------------------
 function startTimer() {
     interval = setInterval(() => {
         timer++;
@@ -228,25 +227,28 @@ function stopTimer() {
     clearInterval(interval);
 }
 
-// Win Check
+// ------------------- Win Check -------------------
 function checkWin() {
     let correct = true;
 
     for (let i = 0; i < tiles.length - 1; i++) {
-        const expectedX = (i % size) * 100;
-        const expectedY = Math.floor(i / size) * 100;
-        if (tiles[i].style.backgroundPosition !== `-${expectedX}px -${expectedY}px`) {
-            correct = false;
-            break;
+        const x = (i % size) * 100;
+        const y = Math.floor(i / size) * 100;
+
+        if (!tiles[i].classList.contains("empty")) {
+            if (tiles[i].style.backgroundPosition !== `-${x}px -${y}px`) {
+                correct = false;
+                break;
+            }
         }
     }
 
     if (correct) {
         stopTimer();
-        messageBox.textContent = `You solved it in ${moves} moves and ${timer} seconds 💙`;
+        messageBox.textContent = `🎉 You solved it in ${moves} moves and ${timer} seconds! 💙`;
         document.body.classList.add("glow");
 
-        // Unlock locked memories
+        // Unlock next photos
         photoSelect.options[2].disabled = false;
         photoSelect.options[3].disabled = false;
         thumbs[2].classList.remove("locked");
@@ -254,7 +256,7 @@ function checkWin() {
     }
 }
 
-// Reset Game
+// ------------------- Reset Game -------------------
 function resetGame() {
     moves = 0;
     timer = 0;
@@ -268,13 +270,13 @@ function resetGame() {
     shuffle();
 }
 
-// Dropdown Change
+// ------------------- Photo Selector -------------------
 photoSelect.addEventListener("change", function () {
     image = this.value;
     resetGame();
 });
 
-// Thumbnail Click
+// ------------------- Thumbnail Click -------------------
 thumbs.forEach(thumb => {
     thumb.addEventListener("click", function () {
         if (this.classList.contains("locked")) return;
@@ -285,9 +287,9 @@ thumbs.forEach(thumb => {
     });
 });
 
-// Restart Button
+// ------------------- Restart Button -------------------
 restartBtn.addEventListener("click", resetGame);
 
-// Start
+// ------------------- Initialize -------------------
 createPuzzle();
 shuffle();
