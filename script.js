@@ -116,6 +116,18 @@ title.addEventListener("click", function () {
     typeWriter();
 });
 
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+});
+
+
 // DOM Elements
 const puzzle = document.getElementById("puzzle");
 const messageBox = document.getElementById("puzzleMessage");
