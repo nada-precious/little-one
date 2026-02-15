@@ -1,4 +1,4 @@
-// Engagement Counter
+// Engagement Counter 
 
 // Simple password protection
 (function() {
