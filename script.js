@@ -208,7 +208,7 @@ function shuffle() {
 
         const rand =
             neighbors[Math.floor(Math.random() * neighbors.length)];
-
+winMessage.classList.remove("show");
         [state[rand], state[emptyPos]] =
             [state[emptyPos], state[rand]];
     }
