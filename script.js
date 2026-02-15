@@ -85,7 +85,8 @@ selector.addEventListener('change', () => {
 });
 
 
-// PUZZLE (Stable + Smooth)
+// ===============================
+// PUZZLE (Corrected Stable Version)
 // ===============================
 
 const puzzleBoard = document.getElementById("puzzleBoard");
@@ -117,7 +118,11 @@ function initPuzzle(imageSrc) {
             tile.dataset.value = i;
         }
 
-        tile.addEventListener("click", () => moveTile(i));
+        tile.addEventListener("click", function () {
+            const index = puzzle.indexOf(this);
+            moveTile(index);
+        });
+
         puzzle.push(tile);
         puzzleBoard.appendChild(tile);
     }
@@ -127,6 +132,7 @@ function initPuzzle(imageSrc) {
 
 function moveTile(index) {
     const emptyIndex = puzzle.findIndex(t => t.dataset.value === "empty");
+
     if (isAdjacent(index, emptyIndex)) {
         [puzzle[index], puzzle[emptyIndex]] =
             [puzzle[emptyIndex], puzzle[index]];
@@ -152,6 +158,7 @@ function isAdjacent(i1, i2) {
     const c1 = i1 % size;
     const r2 = Math.floor(i2 / size);
     const c2 = i2 % size;
+
     return Math.abs(r1 - r2) + Math.abs(c1 - c2) === 1;
 }
 
