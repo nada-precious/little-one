@@ -83,3 +83,114 @@ selector.addEventListener('change', () => {
     player.src = selector.value;
     player.play();
 });
+
+// the puzzle
+
+const board = document.getElementById("puzzleBoard");
+const selector = document.getElementById("imageSelector");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const winMessage = document.getElementById("winMessage");
+
+let tiles = [];
+let emptyIndex = 8;
+let currentImage = selector.value;
+
+function createBoard() {
+    board.innerHTML = "";
+    tiles = [];
+
+    for (let i = 0; i < 9; i++) {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+
+        if (i === 8) {
+            tile.classList.add("empty");
+            tile.dataset.correct = "8";
+        } else {
+            const x = (i % 3) * -120;
+            const y = Math.floor(i / 3) * -120;
+
+            tile.style.backgroundImage = `url(${currentImage})`;
+            tile.style.backgroundPosition = `${x}px ${y}px`;
+            tile.dataset.correct = i.toString();
+        }
+
+        tile.dataset.index = i.toString();
+        tile.addEventListener("click", moveTile);
+
+        tiles.push(tile);
+        board.appendChild(tile);
+    }
+
+    emptyIndex = 8;
+    winMessage.textContent = "";
+}
+
+function moveTile(e) {
+    const index = parseInt(e.target.dataset.index);
+
+    if (isAdjacent(index, emptyIndex)) {
+        swapTiles(index, emptyIndex);
+        emptyIndex = index;
+
+        if (checkWin()) {
+            winMessage.textContent = "You solved it 💙 Our memories always fit together.";
+        }
+    }
+}
+
+function isAdjacent(i1, i2) {
+    const row1 = Math.floor(i1 / 3);
+    const col1 = i1 % 3;
+    const row2 = Math.floor(i2 / 3);
+    const col2 = i2 % 3;
+
+    return (Math.abs(row1 - row2) + Math.abs(col1 - col2)) === 1;
+}
+
+function swapTiles(i1, i2) {
+    const temp = tiles[i1];
+    tiles[i1] = tiles[i2];
+    tiles[i2] = temp;
+
+    board.innerHTML = "";
+    tiles.forEach((tile, index) => {
+        tile.dataset.index = index.toString();
+        board.appendChild(tile);
+    });
+}
+
+function shuffle() {
+    for (let i = 0; i < 100; i++) {
+        const neighbors = getMovableTiles();
+        const randomIndex = neighbors[Math.floor(Math.random() * neighbors.length)];
+        swapTiles(randomIndex, emptyIndex);
+        emptyIndex = randomIndex;
+    }
+    winMessage.textContent = "";
+}
+
+function getMovableTiles() {
+    return tiles
+        .map((_, index) => index)
+        .filter(index => isAdjacent(index, emptyIndex));
+}
+
+function checkWin() {
+    for (let i = 0; i < tiles.length; i++) {
+        if (tiles[i].dataset.correct !== i.toString()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+selector.addEventListener("change", () => {
+    currentImage = selector.value;
+    createBoard();
+});
+
+shuffleBtn.addEventListener("click", shuffle);
+
+createBoard();
+
