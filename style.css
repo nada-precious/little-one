@@ -124,33 +124,21 @@ body {
     font-size: 16px;
 }
 
-.puzzle-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
 #puzzleBoard {
     width: 360px;
     height: 360px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 4px;
-    background: rgba(255,255,255,0.1);
-    padding: 6px;
-    border-radius: 12px;
+    gap: 2px;
+    margin: 20px auto;
 }
 
 .tile {
+    width: 120px;
+    height: 120px;
     background-size: 360px 360px;
-    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.tile:hover {
-    transform: scale(1.04);
+    transition: transform 0.25s ease;
 }
 
 .empty {
@@ -158,25 +146,9 @@ body {
     cursor: default;
 }
 
-#shuffleBtn {
-    padding: 10px 25px;
-    border: none;
-    border-radius: 8px;
-    background: #00c6ff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+#confettiCanvas {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
 }
-
-#shuffleBtn:hover {
-    background: #0072ff;
-}
-
-#winMessage {
-    margin-top: 20px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #00ffcc;
-}
-
