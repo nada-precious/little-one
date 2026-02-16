@@ -18,6 +18,30 @@ body {
 }
 
 
+.clickable-name {
+    cursor: pointer;
+    color: #e11d48;
+    transition: all 0.3s;
+}
+
+.clickable-name:hover {
+    transform: scale(1.1);
+    color: #f43f5e;
+}
+
+#secretMessageBox {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fdf2f8;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    color: #9d174d;
+    font-size: 1.1rem;
+}
+
+
 /* ===============================
    Card Styles
 ================================= */
