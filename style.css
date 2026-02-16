@@ -7,24 +7,6 @@ body {
 }
 
 
-
-.subtitle {
-    font-size: 1.5rem;
-    color: #6B21A8;
-}
-
-
-.clickable-name {
-    cursor: pointer;
-    color: #e11d48;
-    transition: all 0.3s;
-}
-
-.clickable-name:hover {
-    transform: scale(1.1);
-    color: #f43f5e;
-}
-
 #secretMessageBox {
     max-width: 600px;
     margin: 20px auto;
