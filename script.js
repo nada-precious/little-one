@@ -297,10 +297,10 @@ function updateLoveMessageCountdown() {
         `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
 
     if(countdownSeconds <= 0){
-        clearInterval(loveTimer);
-        countdownEl.innerText = "Expired 💔";
-        loveMessageEl.innerText = "This message has expired for today.";
-    }
+    clearInterval(loveTimer);
+    countdownEl.innerText = "💖 Today is over little precious";
+    loveMessageEl.innerText = "Remember, our love is bigger than one day!";
+}
 
     countdownSeconds--;
 }
