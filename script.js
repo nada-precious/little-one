@@ -277,3 +277,33 @@ imageSelector.addEventListener("change", function () {
 // Init
 createBoard(imageSelector.value);
 render();
+
+
+
+
+// Set countdown to 24 hours (1 day)
+let countdownSeconds = 24 * 60 * 60; // 24 hours in seconds
+
+const countdownEl = document.getElementById('messageCountdown');
+
+function updateCountdown() {
+    const hours = Math.floor(countdownSeconds / 3600);
+    const minutes = Math.floor((countdownSeconds % 3600) / 60);
+    const seconds = countdownSeconds % 60;
+
+    countdownEl.innerText = 
+        `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+    if(countdownSeconds <= 0){
+        clearInterval(timer);
+        countdownEl.innerText = "Expired 💔";
+        // Optional: hide message or replace
+        document.getElementById('loveMessage').innerText = "This message has expired for today.";
+    }
+
+    countdownSeconds--;
+}
+
+const timer = setInterval(updateCountdown, 1000);
+updateCountdown();
+
