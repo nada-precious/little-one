@@ -279,31 +279,31 @@ createBoard(imageSelector.value);
 render();
 
 
+document.addEventListener("DOMContentLoaded", function() {
 
+    // === Set countdown start here ===
+    // Example: 23 hours, 45 minutes, 12 seconds
+    let countdownSeconds = (23 * 60 + 25) * 60 + 12;
 
-//// Love Message 24-Hour Countdown
-let countdownSeconds = 24 * 58 * 60; // 24 hours in seconds
-const countdownEl = document.getElementById('messageCountdown');
-const loveMessageEl = document.getElementById('loveMessage');
+    const countdownEl = document.getElementById('messageCountdown');
+    const loveMessageEl = document.getElementById('loveMessage');
 
-function updateLoveMessageCountdown() {
-    if (!countdownEl || !loveMessageEl) return; // check exists
+    function updateLoveMessageCountdown() {
+        const hours = Math.floor(countdownSeconds / 3600);
+        const minutes = Math.floor((countdownSeconds % 3600) / 60);
+        const seconds = countdownSeconds % 60;
 
-    const hours = Math.floor(countdownSeconds / 3600);
-    const minutes = Math.floor((countdownSeconds % 3600) / 60);
-    const seconds = countdownSeconds % 60;
+        countdownEl.innerText = 
+            `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
 
-    countdownEl.innerText = 
-        `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+        if(countdownSeconds <= 0){
+            clearInterval(loveTimer);
+            countdownEl.innerText = "💖 Today is over little precious";
+    loveMessageEl.innerText = "Remember, our love is bigger than one day!"; }
 
-    if(countdownSeconds <= 0){
-    clearInterval(loveTimer);
-    countdownEl.innerText = "💖 Today is over little precious";
-    loveMessageEl.innerText = "Remember, our love is bigger than one day!";
-}
+        countdownSeconds--;
+    }
 
-    countdownSeconds--;
-}
-
-const loveTimer = setInterval(updateLoveMessageCountdown, 1000);
-updateLoveMessageCountdown();
+    const loveTimer = setInterval(updateLoveMessageCountdown, 1000);
+    updateLoveMessageCountdown();
+});
