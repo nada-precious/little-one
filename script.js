@@ -278,30 +278,43 @@ imageSelector.addEventListener("change", function () {
 createBoard(imageSelector.value);
 render();
 
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    // === Set countdown start here ===
-    // Example: 23 hours, 45 minutes, 12 seconds
-    let countdownSeconds = (23 * 60 + 1) * 60 + 12;
+document.addEventListener("DOMContentLoaded", function () {
 
     const countdownEl = document.getElementById('messageCountdown');
     const loveMessageEl = document.getElementById('loveMessage');
 
+    // duration you want (23h 25m 12s)
+    const duration = (22 * 60 + 55) * 60 + 12;
+
+    // check if end time already saved
+    let endTime = localStorage.getItem("loveEndTime");
+
+    if (!endTime) {
+        endTime = Date.now() + duration * 1000;
+        localStorage.setItem("loveEndTime", endTime);
+    }
+
     function updateLoveMessageCountdown() {
-        const hours = Math.floor(countdownSeconds / 3600);
-        const minutes = Math.floor((countdownSeconds % 3600) / 60);
-        const seconds = countdownSeconds % 60;
 
-        countdownEl.innerText = 
-            `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+        let remaining = Math.floor((endTime - Date.now()) / 1000);
 
-        if(countdownSeconds <= 0){
+        if (remaining <= 0) {
             clearInterval(loveTimer);
-            countdownEl.innerText = "💖 Today is over little precious";
-    loveMessageEl.innerText = "Remember, our love is bigger than one day!"; }
+            countdownEl.innerText = "💙  Today is over little precious";
+            loveMessageEl.innerText =
+                "Remember, our love is bigger than one day!";
+            localStorage.removeItem("loveEndTime");
+            return;
+        }
 
-        countdownSeconds--;
+        const hours = Math.floor(remaining / 3600);
+        const minutes = Math.floor((remaining % 3600) / 60);
+        const seconds = remaining % 60;
+
+        countdownEl.innerText =
+            `${String(hours).padStart(2,'0')}:` +
+            `${String(minutes).padStart(2,'0')}:` +
+            `${String(seconds).padStart(2,'0')}`;
     }
 
     const loveTimer = setInterval(updateLoveMessageCountdown, 1000);
