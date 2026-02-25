@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // === Set countdown start here ===
     // Example: 23 hours, 45 minutes, 12 seconds
-    let countdownSeconds = (23 * 60 + 25) * 60 + 12;
+    let countdownSeconds = (23 * 60 + 1) * 60 + 12;
 
     const countdownEl = document.getElementById('messageCountdown');
     const loveMessageEl = document.getElementById('loveMessage');
