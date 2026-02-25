@@ -282,7 +282,7 @@ render();
 
 
 //// Love Message 24-Hour Countdown
-let countdownSeconds = 24 * 53 * 60; // 24 hours in seconds
+let countdownSeconds = 24 * 56 * 60; // 24 hours in seconds
 const countdownEl = document.getElementById('messageCountdown');
 const loveMessageEl = document.getElementById('loveMessage');
 
