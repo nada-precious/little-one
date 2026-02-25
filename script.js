@@ -281,12 +281,14 @@ render();
 
 
 
-// Set countdown to 24 hours (1 day)
+//// Love Message 24-Hour Countdown
 let countdownSeconds = 24 * 60 * 60; // 24 hours in seconds
-
 const countdownEl = document.getElementById('messageCountdown');
+const loveMessageEl = document.getElementById('loveMessage');
 
-function updateCountdown() {
+function updateLoveMessageCountdown() {
+    if (!countdownEl || !loveMessageEl) return; // check exists
+
     const hours = Math.floor(countdownSeconds / 3600);
     const minutes = Math.floor((countdownSeconds % 3600) / 60);
     const seconds = countdownSeconds % 60;
@@ -295,15 +297,13 @@ function updateCountdown() {
         `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
 
     if(countdownSeconds <= 0){
-        clearInterval(timer);
+        clearInterval(loveTimer);
         countdownEl.innerText = "Expired 💔";
-        // Optional: hide message or replace
-        document.getElementById('loveMessage').innerText = "This message has expired for today.";
+        loveMessageEl.innerText = "This message has expired for today.";
     }
 
     countdownSeconds--;
 }
 
-const timer = setInterval(updateCountdown, 1000);
-updateCountdown();
-
+const loveTimer = setInterval(updateLoveMessageCountdown, 1000);
+updateLoveMessageCountdown();
