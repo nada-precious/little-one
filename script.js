@@ -278,45 +278,22 @@ imageSelector.addEventListener("change", function () {
 createBoard(imageSelector.value);
 render();
 
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const countdownEl = document.getElementById('messageCountdown');
-    const loveMessageEl = document.getElementById('loveMessage');
+    const countdownEl = document.getElementById("messageCountdown");
+    const loveMessageEl = document.getElementById("loveMessage");
+    const timeLabel = document.getElementById("timeLabel");
 
-    // duration you want (23h 25m 12s)
-    const duration = (22 * 60 + 55) * 60 + 12;
+    // Show expired look immediately
+    countdownEl.innerText = "💙 Today is over little precious";
 
-    // check if end time already saved
-    let endTime = localStorage.getItem("loveEndTime");
+    loveMessageEl.innerText =
+        "Remember, our love is bigger than one day!";
 
-    if (!endTime) {
-        endTime = Date.now() + duration * 1000;
-        localStorage.setItem("loveEndTime", endTime);
+    // hide countdown label
+    if(timeLabel){
+        timeLabel.style.display = "none";
     }
 
-    function updateLoveMessageCountdown() {
-
-        let remaining = Math.floor((endTime - Date.now()) / 1000);
-
-        if (remaining <= 0) {
-            clearInterval(loveTimer);
-            countdownEl.innerText = "💙  Today is over little precious";
-            loveMessageEl.innerText =
-                "Remember, our love is bigger than one day!";
-            localStorage.removeItem("loveEndTime");
-            return;
-        }
-
-        const hours = Math.floor(remaining / 3600);
-        const minutes = Math.floor((remaining % 3600) / 60);
-        const seconds = remaining % 60;
-
-        countdownEl.innerText =
-            `${String(hours).padStart(2,'0')}:` +
-            `${String(minutes).padStart(2,'0')}:` +
-            `${String(seconds).padStart(2,'0')}`;
-    }
-
-    const loveTimer = setInterval(updateLoveMessageCountdown, 1000);
-    updateLoveMessageCountdown();
 });
