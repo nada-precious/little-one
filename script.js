@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeLabel = document.getElementById("timeLabel");
 
     // Show expired look immediately
-    countdownEl.innerText = "💙 Today is over little precious";
+    countdownEl.innerText = "💙 Today is over  precious";
 
     loveMessageEl.innerText =
         "Remember, our love is bigger than one day!";
