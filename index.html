@@ -35,7 +35,6 @@
   </audio>
 </div>
 
-
 <div class="flex justify-center mt-10">
     <div class="bg-white shadow-xl rounded-2xl p-8 w-[400px] text-center border">
         
@@ -51,15 +50,18 @@
             and still choosing not to walk away.
         </p>
 
-        <!-- Countdown -->
+        <!-- Countdown (now shows expired text) -->
         <div id="messageCountdown"
              class="text-4xl font-bold text-red-600 mb-2">
-            23:57:00
+            00:00:00
         </div>
-        <p class="text-sm text-gray-400">hours : minutes : seconds remaining</p>
+
+        <p id="timeLabel" class="text-sm text-gray-400">
+            hours : minutes : seconds remaining
+        </p>
+
     </div>
 </div>
-
 
     <!-- Engagement Counter Card -->
     <div class="card center-card animate-fadeIn delay-400 scroll-fade">
