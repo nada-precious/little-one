@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
     countdownEl.innerText = " Remember, our love is bigger than one day!";
 
     loveMessageEl.innerText =
-        " Today is over  precious 💙";
+        " That day is over little precious 💙";
 
     // hide countdown label
     if(timeLabel){
