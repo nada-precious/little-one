@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeLabel = document.getElementById("timeLabel");
 
     // Show expired look immediately
-    countdownEl.innerText = " We tell those things eveeeery day !";
+    countdownEl.innerText = " We tell those things eveeeery day nada!";
 
     loveMessageEl.innerText =
         " but your mother's one is not clean !";
