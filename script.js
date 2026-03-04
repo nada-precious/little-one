@@ -286,10 +286,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeLabel = document.getElementById("timeLabel");
 
     // Show expired look immediately
-    countdownEl.innerText = " Remember, our love is bigger than one day!";
+    countdownEl.innerText = " We tell those things eveeeery day !";
 
     loveMessageEl.innerText =
-        " That day is over little precious 💙";
+        " but your mother's one is not clean !";
 
     // hide countdown label
     if(timeLabel){
