@@ -286,10 +286,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeLabel = document.getElementById("timeLabel");
 
     // Show expired look immediately
-    countdownEl.innerText = " We tell those things eveeeery day nada!";
+    countdownEl.innerText = " We tell those things to each other eveeeery day nada!";
 
     loveMessageEl.innerText =
-        " but your mother's one is not clean !";
+        " but your mother's one was not clean !";
 
     // hide countdown label
     if(timeLabel){
