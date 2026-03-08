@@ -35,14 +35,23 @@
   </audio>
 </div>
 
-<div class="mt-4 bg-pink-50 border border-pink-200 rounded-lg p-3">
-    <p class="text-pink-600 italic">
-        Your beautiful cheeks are my favorite place to leave a kiss.<br>
-        Not because it’s easy…<br>
-        but because every moment with you feels warm and safe.<br>
-        And I would choose you again, every single day.
-    </p>
-</div>
+<p id="sweetMessage" class="mt-4"></p>
+
+<script>
+const text = `Your beautiful cheeks are my favorite place to steal a kiss.
+Not because it's easy…
+but because you make my world feel safe.`;
+
+let i = 0;
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("sweetMessage").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    }
+}
+typeWriter();
+</script>
 
 
 <div class="flex justify-center mt-10">
