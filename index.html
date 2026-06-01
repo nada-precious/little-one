@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,25 +11,92 @@
 
     <!-- Main Title -->
     <header class="text-center py-8">
-        <h1 class="main-title animate-fadeIn">Zanyar 💙 Nada</h1>
+        <h1  id="nadaName" class="clickable-name class="main-title animate-fadeIn">Zanyar 💙 Nada</h1>
         <p class="subtitle animate-fadeIn delay-200">Our Beautiful Journey</p>
+
+        
+<div class="card center-card" id="secretMessageBox" style="display:none; margin-top:20px;">
+    <p id="secretMessageText"></p>
+</div>
     </header>
 
-    <div class="text-center mb-12 scroll-fade">
-    <button class="music-btn" onclick="toggleMusic()">Play our song little precious 💙</button>
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <div class="center-card card">
+  <h3>Choose a Song:</h3>
+  <select id="songSelector" class="music-btn" title="Choose a song to play">
+    <option value="music.mp3">رۆ‌حی خۆم </option>
+    <option value="a.mp3">ئەحە گیان</option>
+      <option value="ho.mp3">چەندین گەڕام</option>
+       <option value="ad.mp3">وەکو نەی</option>
+      <option value="ha.mp3"> سوغاتی</option>
+  </select>
+  <audio id="audioPlayer" controls style="margin-top: 1rem; width: 100%;">
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 </div>
 
+<p id="sweetMessage" class="mt-4"></p>
+
+<script>
+const text = `Your beautiful cheeks are my favorite place to steal a kiss.
+Not because it’s easy…
+but because every moment with them tells me what my life could be ....`;
+
+let i = 0;
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("sweetMessage").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    }
+}
+typeWriter();
+</script>
+
+
+<div class="flex justify-center mt-10">
+    <div class="bg-white shadow-xl rounded-2xl p-8 w-[400px] text-center border">
+        
+        
+        
+        
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-purple-700 mb-4">
+            💌 A Message for Today
+        </h2>
+
+        <!-- Love Message -->
+        <p class="text-gray-700 mb-6" id="loveMessage">
+            Sometimes it isn’t about who was right.<br>
+            Sometimes it’s us feeling hurt<br>
+            and still choosing not to walk away.
+        </p>
+
+        <!-- Countdown (now shows expired text) -->
+        <div id="messageCountdown"
+             class="text-4xl font-bold text-red-600 mb-2">
+            00:00:00
+        </div>
+
+        <p id="timeLabel" class="text-sm text-gray-400">
+            hours : minutes : seconds remaining
+        </p>
+
+    </div>
+</div>
 
     <!-- Engagement Counter Card -->
     <div class="card center-card animate-fadeIn delay-400 scroll-fade">
         <h2>Engaged Since</h2>
-        <p>25 / 01 / 2026 - 7:00 PM</p>
+        <p>25 / 12 / 2025 - 7:00 PM</p>
         <h3 id="engagementCounter"></h3>
     </div>
 
+  <div class="card scroll-fade">
+                <h3>My valentine</h3>
+                <p>no matter the distance, no matter the time, you will always be my forever 💙</p>
+            </div>
+    
     <!-- Timeline -->
     <section class="section">
         <h2 class="text-3xl font-bold text-center text-purple-700 mb-6">Our Story</h2>
@@ -40,42 +107,68 @@
             </div>
             <div class="card scroll-fade">
                 <h3>Engagement</h3>
-                <p>25 / 01 / 2026</p>
+                <p>25 / 12 / 2025</p>
             </div>
+                      
             <div class="card scroll-fade">
                 <h3>Forever</h3>
                 <p>Still writing our story...</p>
             </div>
         </div>
     </section>
-
-    <!-- Memory Gallery -->
-    <section class="section">
-        <h2 class="text-3xl font-bold text-center text-purple-700 mb-6">Our Memories</h2>
-        <div class="card-container">
-            <div class="card image-card scroll-fade">
-                <img src="photo1.jpg" alt="Our First Smile">
-                <div class="card-content">
-                    <h3>Our First Smile</h3>
-                    <p>The beginning 💙</p>
-                </div>
-            </div>
-            <div class="card image-card scroll-fade">
-                <img src="photo2.jpg" alt="Beautiful Day">
-                <div class="card-content">
-                    <h3>Beautiful Day</h3>
-                    <p>Unforgettable moment</p>
-                </div>
-            </div>
-            <div class="card image-card scroll-fade">
-                <img src="photo3.jpg" alt="Forever Us">
-                <div class="card-content">
-                    <h3>Forever Us</h3>
-                    <p>My favorite person</p>
-                </div>
+<!-- Memory Gallery -->
+<section class="section">
+    <h2 class="text-3xl font-bold text-center text-purple-700 mb-6">Our Memories</h2>
+    <div class="card-container">
+        <div class="card image-card scroll-fade">
+            <img src="photo1.jpg" alt="Our First Smile">
+            <div class="card-content">
+                <h3>Our First Smile</h3>
+                <p>The beginning 💙</p>
             </div>
         </div>
-    </section>
+
+        <div class="card image-card scroll-fade">
+            <img src="photo2.jpg" alt="Beautiful Day">
+            <div class="card-content">
+                <h3>Beautiful Day</h3>
+                <p>Unforgettable moment</p>
+            </div>
+        </div>
+
+        <div class="card image-card scroll-fade">
+            <img src="SH.jpg" alt="emptying my pockets💸">
+            <div class="card-content">
+                <h3>First Shopping</h3>
+                <p>And emptying my pockets💸</p>
+            </div>
+        </div>
+
+        <div class="card image-card scroll-fade">
+            <img src="FF.jpg" alt="Being officially formal">
+            <div class="card-content">
+                <h3>Being officially formal</h3>
+                <p>8/1/2026</p>
+            </div>
+        </div>
+        
+<div class="card image-card scroll-fade">
+            <img src="IMG_4126.jpeg" alt="I thought I was unbeatable">
+            <div class="card-content">
+                <h3>I thought I was unbeatable</h3>
+                <p>then you came and won me too!</p>
+            </div>
+        </div>
+        
+        <div class="card image-card scroll-fade">
+            <img src="photo3.jpg" alt="Forever Us">
+            <div class="card-content">
+                <h3>Forever Us</h3>
+                <p>My favorite person</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Open When Letters -->
     <section class="section">
@@ -104,7 +197,50 @@
         </audio>
     </div>
 
+<div class="puzzle-card">
+    <div class="puzzle-title">Our Memory Puzzle 💙</div>
+
+    <div id="puzzleBoard"></div>
+
+    <div class="puzzle-controls">
+        <select id="imageSelector">
+            <option value="ph1.jpg">Memory 1</option>
+            <option value="ph2.jpg">Memory 2</option>
+            <option value="ph3.jpg">Memory 3</option>
+        </select>
+
+        <button id="shuffleBtn">Shuffle</button>
+
+        <div class="puzzle-stats">
+            Moves: <span id="moveCounter">0</span> |
+            Time: <span id="timer">0</span>s
+        </div>
+    </div>
+
+    <div id="winMessage"></div>
+</div>
+
+    <!-- Memory Quiz Section -->
+    <section class="section">
+        <h2 class="text-3xl font-bold text-center text-purple-700 mb-6">💭 How Well Do You Know Me?</h2>
+        <div class="card center-card quiz-container">
+            <div id="quizContent">
+                <!-- Question will be inserted here -->
+            </div>
+            <div id="scoreDisplay" style="display:none;" class="mt-6">
+                <h3 class="text-2xl font-bold text-purple-700 mb-4">Quiz Complete! 🎉</h3>
+                <p class="text-xl mb-4">Your Score: <span id="finalScore" class="font-bold text-pink-600">0</span>/10</p>
+                <button onclick="restartQuiz()" class="quiz-btn">Try Again 💙</button>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
