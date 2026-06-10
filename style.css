@@ -1,355 +1,6 @@
-body {
-    margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-}
-
-
-#secretMessageBox {
-    max-width: 600px;
-    margin: 20px auto;
-    background: #fdf2f8;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    text-align: center;
-    color: #9d174d;
-    font-size: 1.1rem;
-}
-
-
-/* ===============================
-   Card Styles
-.card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-}
-
-.center-card {
-    max-width: 400px;
-    margin: 2rem auto;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-
-/* ===============================
-   Image Cards
-.image-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0.75rem;
-}
-
-.card-content {
-    margin-top: 0.75rem;
-}
-
-
-/* ===============================
-   Letter Cards
-.letter-card {
-    cursor: pointer;
-    padding: 2rem;
-}
-
-
-/* ===============================
-   Music Button
-.music-btn {
-    background: #EC4899;
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transition: background 0.3s, transform 0.3s;
-}
-
-.music-btn:hover {
-    background: #DB2777;
-    transform: scale(1.05);
-}
-
-
-/* ===============================
-   Animations
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-.animate-fadeIn {
-    animation: fadeIn 0.8s forwards;
-}
-
-.animate-fadeIn.delay-200 {animation-delay: 0.2s;}
-.animate-fadeIn.delay-400 {animation-delay: 0.4s;}
-
-
-/* ===============================
-   Scroll Fade
-.scroll-fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.scroll-fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ===============================
-   Song Selector
-#songSelector {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-
-/* =====================================================
-   PUZZLE SECTION (SCOPED – DOES NOT BREAK WEBSITE)
-
-.puzzle-section {
-    background: linear-gradient(135deg, #fbeaff, #e0f7ff);
-    padding: 60px 0;
-    display: flex;
-    justify-content: center;
-}
-
-
-/* Puzzle Card */
-.puzzle-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    padding: 30px;
-    width: 420px;
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.puzzle-card:hover {
-    transform: translateY(-5px);
-}
-
-
-/* Title */
-.puzzle-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #6b3fa0;
-}
-
-
-/* Puzzle Board */
-#puzzleBoard {
-    width: 360px;
-    height: 360px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    margin: 20px auto;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.tile {
-    width: 120px;
-    height: 120px;
-    background-size: 360px 360px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.tile:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.empty {
-    background: rgba(255, 255, 255, 0.3);
-    cursor: default;
-}
-
-
-/* Controls */
-.puzzle-controls {
-    margin-top: 15px;
-}
-
-.puzzle-controls select,
-.puzzle-controls button {
-    padding: 8px 14px;
-    margin: 6px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.puzzle-controls select {
-    background: #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.puzzle-controls button {
-    background: linear-gradient(135deg, #b16cea, #ff6ec4);
-    color: white;
-    font-weight: 600;
-}
-
-.puzzle-controls button:hover {
-    transform: scale(1.05);
-}
-
-
-/* Stats */
-.puzzle-stats {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #444;
-}
-
-
-/* Win Message */
-#winMessage {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #d63384;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: 0.4s ease;
-}
-
-#winMessage.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =============================
-   LOVE MESSAGE END STYLE
-   ============================= */
-
-.ended-message{
-    animation: fadeIn 1.5s ease;
-    text-align:center;
-    color:#444;
-}
-
-.ended-note{
-    display:block;
-    margin-top:14px;
-    font-size:14px;
-    color:#888;
-    font-style:italic;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* ===============================
-   Quiz Styles
-.quiz-container {
-    max-width: 500px;
-}
-
-#quizContent h3 {
-    font-size: 1.5rem;
-    color: #7c2d5f;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-}
-
-.quiz-question {
-    text-align: left;
-    margin-bottom: 1.5rem;
-}
-
-.quiz-question p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.quiz-btn {
-    background: white;
-    color: #7c2d5f;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid #EC4899;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: left;
-}
-
-.quiz-btn:hover {
-    background: #EC4899;
-    color: white;
-    transform: translateX(5px);
-}
-
-.quiz-btn.correct {
-    background: #10b981;
-    color: white;
-    border-color: #10b981;
-}
-
-.quiz-btn.incorrect {
-    background: #ef4444;
-    color: white;
-    border-color: #ef4444;
-}
-
-.quiz-progress {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #666;
-    font-size: 0.9rem;
 /* ===============================
    Typography 
+================================= */
 body {
     margin: 0;
     font-family: 'Helvetica Neue', sans-serif;
@@ -371,6 +22,7 @@ body {
 
 /* ===============================
    Card Styles
+================================= */
 .card {
     background: white;
     border-radius: 1rem;
@@ -401,6 +53,7 @@ body {
 
 /* ===============================
    Image Cards
+================================= */
 .image-card img {
     width: 100%;
     height: 200px;
@@ -415,6 +68,7 @@ body {
 
 /* ===============================
    Letter Cards
+================================= */
 .letter-card {
     cursor: pointer;
     padding: 2rem;
@@ -423,6 +77,7 @@ body {
 
 /* ===============================
    Music Button
+================================= */
 .music-btn {
     background: #EC4899;
     color: white;
@@ -442,6 +97,7 @@ body {
 
 /* ===============================
    Animations
+================================= */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
@@ -457,6 +113,7 @@ body {
 
 /* ===============================
    Scroll Fade
+================================= */
 .scroll-fade {
     opacity: 0;
     transform: translateY(30px);
@@ -471,6 +128,7 @@ body {
 
 /* ===============================
    Song Selector
+================================= */
 #songSelector {
     width: 100%;
     padding: 0.75rem;
@@ -482,6 +140,7 @@ body {
 
 /* =====================================================
    PUZZLE SECTION (SCOPED – DOES NOT BREAK WEBSITE)
+===================================================== */
 
 .puzzle-section {
     background: linear-gradient(135deg, #fbeaff, #e0f7ff);
@@ -602,34 +261,4 @@ body {
 #winMessage.show {
     opacity: 1;
     transform: translateY(0);
-}
-
-
-/* =============================
-   LOVE MESSAGE END STYLE
-   ============================= */
-
-.ended-message{
-    animation: fadeIn 1.5s ease;
-    text-align:center;
-    color:#444;
-}
-
-.ended-note{
-    display:block;
-    margin-top:14px;
-    font-size:14px;
-    color:#888;
-    font-style:italic;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
